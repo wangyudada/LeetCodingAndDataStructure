@@ -62,6 +62,11 @@ public class AVLNode {
         return null;
     }
 
+    /**
+     * 左旋转
+     * @param node
+     * @return
+     */
     public AVLNode leftRotation(AVLNode node) {
         if (node != null) {
             AVLNode rightChild = node.rightChild;
@@ -88,6 +93,12 @@ public class AVLNode {
         putData(root, data);
     }
 
+    /**
+     * 插入数据
+     * @param node
+     * @param data
+     * @return
+     */
     private boolean putData(AVLNode node, int data) {
         if (node == null) {
             node = new AVLNode(data);
@@ -113,7 +124,7 @@ public class AVLNode {
         } else if (i > 0) {
             p.leftChild = new AVLNode(p, data);
         }
-//        rebuild(p);
+        rebuild(p);
         return true;
     }
 
