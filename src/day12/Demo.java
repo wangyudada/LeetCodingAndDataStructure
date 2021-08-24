@@ -25,7 +25,7 @@ package day12;
  */
 public class Demo {
     public static void main(String[] args) {
-
+        searchRange(new int[]{5, 7, 7, 8, 8, 10}, 8);
     }
 
     public static int[] searchRange(int[] nums, int target) {
@@ -44,7 +44,6 @@ public class Demo {
         int result = nums.length;
         while (left <= right) {
             int mid = (left + right) / 2;
-            //        查找左边第一个大于等于target的数
             if (nums[mid] > target || (status && nums[mid] >= target)) {
                 right = mid - 1;
                 result = mid;
