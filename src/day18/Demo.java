@@ -19,6 +19,8 @@ import java.util.List;
  * <p>
  * 输入: candidates = [2,3,5], target = 8
  * 输出: [[2,2,2,2],[2,3,3],[3,5]]
+ *
+ * @author WangYu
  */
 public class Demo {
     public static void main(String[] args) {
