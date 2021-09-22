@@ -1,6 +1,5 @@
 package day28;
 
-
 /**
  * 还记得童话《卖火柴的小女孩》吗？现在，你知道小女孩有多少根火柴，请找出一种能使用所有火柴拼成一个正方形的方法。
  * 不能折断火柴，可以把火柴连接起来，并且每根火柴都要用到。
@@ -25,6 +24,36 @@ package day28;
  */
 public class Demo {
     public boolean makesquare(int[] matchsticks) {
-
+        int sum = 0;
+        //统计所有火柴的长度
+        for (int num : matchsticks) {
+            sum += num;
+        }
+        //如果所有火柴的长度不是4的倍数，直接返回false
+        if (sum == 0 || (sum & 3) != 0) {
+            return false;
+        }
+        return dfs(matchsticks, 0, sum >> 2, new int[4]);
     }
+
+    private boolean dfs(int[] matchsticks, int idx, int target, int[] size) {
+        if (idx == matchsticks.length) {
+            if (size[0] == size[1] && size[1] == size[2] && size[2] == size[3]) {
+                return true;
+            }
+            return false;
+        }
+        for (int i = 0; i < size.length; i++) {
+            if (size[i] + matchsticks[idx] > target) {
+                continue;
+            }
+            size[i] += matchsticks[idx];
+            if (dfs(matchsticks, idx + 1, target, size)) {
+                return true;
+            }
+            size[i] -= matchsticks[idx];
+        }
+        return false;
+    }
+
 }

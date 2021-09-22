@@ -28,6 +28,8 @@ package day27;
 public class Demo {
     public static void main(String[] args) {
         int[] ints = {1};
+        int[] ints1 = {1, 1, 1, 1, 1};
+        int targetSumWays1 = findTargetSumWays(ints1, 3);
         int targetSumWays = findTargetSumWays(ints, 1);
         System.out.println(targetSumWays);
     }
