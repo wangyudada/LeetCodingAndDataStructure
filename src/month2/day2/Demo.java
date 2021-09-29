@@ -23,6 +23,17 @@ package month2.day2;
  */
 public class Demo {
     public int jump(int[] nums) {
-
+        int position = nums.length - 1;
+        int count = 0;
+        while (position > 0) {
+            for (int i = 0; i < position; i++) {
+                if (i + nums[i] >= position) {
+                    position = i;
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count;
     }
 }
