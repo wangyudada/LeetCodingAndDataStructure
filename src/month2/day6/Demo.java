@@ -11,12 +11,21 @@ package month2.day6;
  * 示例 2：
  * 输入：n = 1
  * 输出：1
+ * <p>
  * https://leetcode-cn.com/problems/unique-binary-search-trees/
  *
  * @author WangYu
  */
 public class Demo {
     public int numTrees(int n) {
-        
+        int[] tree = new int[n + 1];
+        tree[0] = 1;
+        tree[1] = 1;
+        for (int i = 2; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                tree[i] += tree[j - 1] * tree[i - j];
+            }
+        }
+        return tree[n];
     }
 }
