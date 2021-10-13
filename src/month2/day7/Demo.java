@@ -1,5 +1,6 @@
 package month2.day7;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,25 @@ import java.util.List;
  */
 public class Demo {
     public List<TreeNode> generateTrees(int n) {
+        List<TreeNode> dfs = dfs(1, n);
+        return dfs;
+    }
 
+    public List<TreeNode> dfs(int start, int end) {
+        ArrayList<TreeNode> treeNodes = new ArrayList<>();
+        if (start >= end) {
+            treeNodes.add(start == end ? new TreeNode(start) : null);
+        } else {
+            for (int i = start; i <= end; i++) {
+                List<TreeNode> left = dfs(start, i - 1);
+                List<TreeNode> right = dfs(i + 1, end);
+                for (TreeNode treeNode : left) {
+                    for (TreeNode node : right) {
+                        treeNodes.add(new TreeNode(i, treeNode, node));
+                    }
+                }
+            }
+        }
+        return treeNodes;
     }
 }
