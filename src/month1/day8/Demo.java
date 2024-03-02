@@ -35,7 +35,6 @@ public class Demo {
         }
         Arrays.sort(nums);
 //        总和初始化
-        int ans = nums[0] + nums[1] + nums[2] + nums[3];
         int sum = 0;
 //        数组长度
         int length = nums.length;
@@ -63,7 +62,7 @@ public class Demo {
                         right--;
                     } else if (sum < target) {
                         left++;
-                    } else if (sum > target) {
+                    } else {
                         right--;
                     }
                 }
