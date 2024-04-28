@@ -22,18 +22,18 @@ public class Solution {
         if (k == 0 || head == null || head.next == null) {
             return head;
         }
-        int length = 1;
+        int size = 1;
         ListNode pre = head;
         while (pre.next != null) {
+            size++;
             pre = pre.next;
-            length++;
         }
-        int high = (k - length) % length;
-        if (high == length) {
+        int index = size - (k % size);
+        if (index == size) {
             return head;
         }
         pre.next = head;
-        while (high-- > 0) {
+        while (index-- > 0) {
             pre = pre.next;
         }
         ListNode result = pre.next;
