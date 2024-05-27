@@ -24,7 +24,8 @@ public class Solution {
 
     public void dfs(int[] candidates, int target, ArrayList<List<Integer>> result, ArrayList<Integer> inners, int index){
         if (target == 0){
-            result.add(new ArrayList<>(inners));
+            ArrayList<Integer> temp = new ArrayList<>(inners);
+            result.add(temp);
             return;
         }
         if (target < 0) {
