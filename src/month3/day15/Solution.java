@@ -13,7 +13,7 @@ public class Solution {
      */
     public List<List<Integer>> permute(int[] nums) {
         ArrayList<List<Integer>> result = new ArrayList<>();
-        List<Integer> temp = Arrays.asList(new Integer[nums.length]);
+        List<Integer> temp = new ArrayList<>();
         boolean[] onPath = new boolean[nums.length];
         dfs(result, nums, 0, temp, onPath);
         return result;
@@ -26,10 +26,11 @@ public class Solution {
         }
         for (int i = 0; i < nums.length; i++) {
             if (!onPath[i]) {
-                temp.set(index, nums[i]);
+                temp.add(nums[i]);
                 onPath[i] = true;
                 dfs(result, nums, index + 1, temp, onPath);
                 onPath[i] = false;
+                temp.remove(temp.size()-1);
             }
         }
     }
