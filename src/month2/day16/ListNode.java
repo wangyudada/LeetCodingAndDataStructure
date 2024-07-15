@@ -3,6 +3,7 @@ package month2.day16;
 public class ListNode {
     public int val;
     public ListNode next;
+    public ListNode random;
 
     public ListNode() {
     }
